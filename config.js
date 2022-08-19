@@ -31,7 +31,15 @@ export const serverDefaults = Object.freeze({
 })
 
 const pluginServer = Object.freeze({
-  logger: { prettyPrint: { suppressFlushSyncWarning: true }, prettifier }
+  logger: {
+    transport: {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+      },
+    },
+    prettifier
+  }
 })
 
 export const defaults = {
