@@ -1,5 +1,4 @@
 import Joi from 'joi'
-import { prettifier } from './src/logger.js'
 
 const proxyItem = Joi.object({
   from: Joi.string().uri({ relativeOnly: true }),
@@ -33,12 +32,11 @@ export const serverDefaults = Object.freeze({
 const pluginServer = Object.freeze({
   logger: {
     transport: {
-      target: "pino-pretty",
+      target: './src/pinoPretty.js',
       options: {
         colorize: true,
       },
-    },
-    prettifier
+    }
   }
 })
 

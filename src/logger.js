@@ -1,9 +1,9 @@
 import fp from 'fastify-plugin'
-import dateTime from './_date-time.js'
+// import dateTime from './_date-time.js'
 import ms from 'ms'
 import { bold, blue, dim, yellow, red, cyan, green } from 'femtocolor'
 
-const EOL = '\n'
+// const EOL = '\n'
 const colorCodes = { 5: red, 4: yellow, 3: cyan, 2: green }
 const getColor = status => colorCodes[Math.trunc(status / 100)]
 
@@ -17,21 +17,7 @@ export const responseLogger = fp(async server => {
   server.addHook('onResponse', logResponse)
 })
 
-
 export const header = blue('⚡︎dev-server')
-
-export const prettifier = () => entry => {
-  if (entry.reqId) return
-  if (entry.msg) {
-    if (entry.msg.includes('Server listening')) {
-      const startup = entry.msg.replace('Server listening', header).split('at')
-      entry.msg = startup[0] + 'listening on' + bold(green(startup[1]))
-    }
-    const output = []
-    output.push(`[${dateTime()}]`, entry.msg)
-    return output.join(' ') + EOL
-  }
-}
 
 export const logDir = (server) => (dir) => server.log.info(header + ' serving ' + bold(dir))
 export const logSpa = (server, spaFile) => server.log.info(header + ' using fallback file ' + bold(spaFile))
