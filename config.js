@@ -35,6 +35,10 @@ const pluginServer = Object.freeze({
 })
 
 export const defaults = {
+  cors: {
+    origin: "*",
+    methods: ["GET"]
+  },
   proxy: [],
   dirs: ['.'],
   port: 8080,
