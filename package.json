@@ -13,7 +13,8 @@
   "imports": {
     "#init": "./src/init.js",
     "#config": "./config.js",
-    "#plugin": "./index.js"
+    "#plugin": "./index.js",
+    "#pinoPretty": "./src/pinoPretty.js"
   },
   "repository": {
     "type": "git",

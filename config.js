@@ -32,7 +32,8 @@ export const serverDefaults = Object.freeze({
 const pluginServer = Object.freeze({
   logger: {
     transport: {
-      target: './src/pinoPretty.js',
+      target: "#pinoPretty",
+      // target: "pino-pretty",
       options: {
         colorize: true,
       },
